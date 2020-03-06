@@ -1,12 +1,10 @@
-from skimage import filters
-from skimage.morphology import disk
-
 from matplotlib import pyplot as plt
 plt.rcParams['image.cmap'] = 'gray'
 
 import numpy as np
 import cv2
-from skimage import io
+from skimage import io,filters
+
 #Las fotos de entrada estan en formato png o jpeg
 
 prueba = './ejemplos/tornillo_prueba.jpg'

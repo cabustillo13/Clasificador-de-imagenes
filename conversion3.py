@@ -26,8 +26,12 @@ sk_gray = color.rgb2gray(tornillo_float)
 # Esos valores son el criterio utilizado en la TV para senales a color
 #gray = tornillo_float @ [1/3, 1/3, 1/3]
 #Aca se colocan el mismo peso para los tres
+f, (ax1, ax0) = plt.subplots(1, 2, figsize=(16, 5))
 
-plt.imshow(sk_gray)
+ax1.imshow(tornillo)
+ax1.set_title('Original')
+ax0.imshow(sk_gray)
+ax0.set_title('WG, WB y WR por skimage')
 plt.show()
 
 
