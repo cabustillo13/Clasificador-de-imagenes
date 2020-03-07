@@ -2,4 +2,8 @@ https://pythoneyes.wordpress.com/2017/05/22/extraccion-de-datos-valores-de-pixel
 
 https://pythoneyes.wordpress.com/2017/05/24/segmentacion-por-umbral-binarizacion-de-una-imagen/
 
+http://alojamientos.us.es/gtocoma/pid/tema3-1.pdf
 
+http://www.wikilengua.org/index.php/Terminesp:diferenciador_(filtro_diferencial)
+
+https://docs.gimp.org/2.8/es/plug-in-sobel.html
