@@ -7,3 +7,13 @@ http://alojamientos.us.es/gtocoma/pid/tema3-1.pdf
 http://www.wikilengua.org/index.php/Terminesp:diferenciador_(filtro_diferencial)
 
 https://docs.gimp.org/2.8/es/plug-in-sobel.html
+
+http://www.varpa.org/~mgpenedo/cursos/Ip/Tema6/nodo6_2.html
+
+https://www.cse.unr.edu/~bebis/CS791E/Notes/Thresholding.pdf
+
+https://imagej.net/Thresholding
+
+https://carlosjuliopardoblog.wordpress.com/2017/12/04/hog-histograma-de-gradientes-orientados/
+
+https://slideplayer.es/slide/5495176/

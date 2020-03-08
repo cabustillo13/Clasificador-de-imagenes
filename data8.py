@@ -1,7 +1,3 @@
-#INCOMPLETO
-#TERMINAR ESTE MODULO CUANDO TENGA MAS FOTOS EN MI BASE DE DATOS MAS GRANDE
-
-
 import numpy as np
 
 from matplotlib import pyplot as plt
@@ -94,6 +90,130 @@ for i in range(0, len(clavo)-1):
     aux = normSize(clavo[i])
     # aux = imgClean(aux, mode='cv')
     clavo_n.append(aux)
-    clavo_gray.append(img2gray(lemon_n[i], mode='cv'))
-    clavo_edge.append(imgEdge(lemon_gray[i]))
+    clavo_gray.append(img2gray(clavo_n[i], mode='cv'))
+    clavo_edge.append(imgEdge(clavo_gray[i]))
     
+#HOG: Histograma de gradientes orientados
+from skimage.feature import hog
+
+def m_hog(image):
+    feature = hog(image, block_norm='L2-Hys').ravel()
+    return feature
+
+##3 tornillos distintos
+t1_fhog = m_hog(tornillo_gray[0])
+t2_fhog = m_hog(tornillo_gray[1])
+t3_fhog = m_hog(tornillo_gray[2])
+
+f, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(15, 5))
+
+ax0.plot(t1_fhog, color='C3')
+ax1.plot(t2_fhog, color='C3')
+ax2.plot(t3_fhog, color='C3')
+
+ax0.grid(True)
+ax1.grid(True)
+ax2.grid(True)
+plt.show()
+
+##Entre tornillo, tuerca, arandela y clavo
+tornillo_fhog = m_hog(tornillo_gray[0])
+clavo_fhog = m_hog(clavo_gray[0])
+tuerca_fhog = m_hog(tuerca_gray[0])
+arandela_fhog = m_hog(arandela_gray[0])
+
+f, (ax0, ax1, ax2, ax3) = plt.subplots(1, 4, figsize=(15, 5))
+
+ax0.plot(tornillo_fhog, color='C3')
+ax1.plot(tuerca_fhog, color='C3')
+ax2.plot(arandela_fhog, color='C3')
+ax3.plot(clavo_fhog, color='C3')
+
+ax0.grid(True)
+ax1.grid(True)
+ax2.grid(True)
+ax3.grid(True)
+plt.show()
+
+#Momentos de Hu
+
+##Entre 3 tornillos distintos
+def hu_moments(image):
+    feature = cv2.HuMoments(cv2.moments(image)).flatten()
+    return feature
+
+t1_fhm = hu_moments(tornillo_edge[0])
+t2_fhm = hu_moments(tornillo_edge[1])
+t3_fhm = hu_moments(tornillo_edge[2])
+
+f, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(15, 5))
+
+ax0.plot(t1_fhm, color='C3')
+ax1.plot(t2_fhm, color='C3')
+ax2.plot(t3_fhm, color='C3')
+
+ax0.grid(True)
+ax1.grid(True)
+ax2.grid(True)
+plt.show()
+
+##Entre tornillo, tuerca, arandela y clavo
+tornillo_fhm = hu_moments(tornillo_edge[0])
+tuerca_fhm = hu_moments(tuerca_edge[0])
+arandela_fhm = hu_moments(arandela_edge[0])
+clavo_fhm = hu_moments(clavo_edge[0])
+
+f, (ax0, ax1, ax2, ax3) = plt.subplots(1, 4, figsize=(15, 5))
+
+ax0.plot(tornillo_fhm, color='C3')
+ax1.plot(tuerca_fhm, color='C3')
+ax2.plot(arandela_fhm, color='C3')
+ax3.plot(clavo_fhm, color='C3')
+
+ax0.grid(True)
+ax1.grid(True)
+ax2.grid(True)
+ax3.grid(True)
+plt.show()
+
+#Haralick Textura
+import mahotas
+
+def haralick(image):
+    feature = mahotas.features.haralick(image).mean(axis=0)
+    return feature
+
+##Entre 3 clavos distintos
+t1_fht = haralick(tornillo_gray[0])
+t2_fht = haralick(tornillo_gray[1])
+t3_fht = haralick(tornillo_gray[2])
+
+f, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(15, 5))
+
+ax0.plot(t1_fht, color='C3')
+ax1.plot(t2_fht, color='C3')
+ax2.plot(t3_fht, color='C3')
+
+ax0.grid(True)
+ax1.grid(True)
+ax2.grid(True)
+plt.show()
+
+##Entre tornillo, tuerca, arandela y clavo
+tornillo_fht = haralick(tornillo_gray[0])
+clavo_fht = haralick(clavo_gray[0])
+tuerca_fht = haralick(tuerca_gray[0])
+arandela_fht = haralick(arandela_gray[0])
+
+f, (ax0, ax2, ax3, ax1) = plt.subplots(1, 4, figsize=(15, 5))
+
+ax0.plot(tornillo_fht, color='C3')
+ax1.plot(clavo_fht, color='C3')
+ax2.plot(tuerca_fht, color='C3')
+ax3.plot(arandela_fht, color='C3')
+
+ax0.grid(True)
+ax1.grid(True)
+ax2.grid(True)
+ax3.grid(True)
+plt.show()
