@@ -17,3 +17,5 @@ https://imagej.net/Thresholding
 https://carlosjuliopardoblog.wordpress.com/2017/12/04/hog-histograma-de-gradientes-orientados/
 
 https://slideplayer.es/slide/5495176/
+
+https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn
