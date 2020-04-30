@@ -309,6 +309,7 @@ ax.grid(True)
 ax.set_title('Rendimiento vrs K')
 plt.ylabel('Predicciones correctas (%)')
 plt.xlabel('K')
+plt.show()
 
 #K MEANS
 ##Training 
@@ -462,26 +463,76 @@ def kmeans_train(data):
         
     return [tornillo_mean, tuerca_mean, arandela_mean, clavo_mean]
 
-##Rendimiento
-#data = data_analysis()
-#test = test_analysis()
-
-##ESTO ESTA BIEN NO SE PORQUE NO LO RECONOCE
-#means = kmeans_train(data)
-
-#MAX = 50
-
-#ans = []
-
-#for i in range(0, MAX):
-#    ans.append(kmeans(test, means))
+def kmeans(test, means):
     
-#for i in range(0, len(ans)):
-#    ans[i] = ans[i] * 100 / len(test)
+    tornillo_mean = means[0]
+    tuerca_mean = means[1]
+    arandela_mean = means[2]
+    clavo_mean = means[3]
+    
+    correct = 0
 
-#fig, ax = plt.subplots()
-#ax.plot(ans)
-#ax.grid(True)
-#ax.set_title('Rendimiento en diferentes ejecuciones')
-#plt.ylabel('Predicciones correctas (%)')
-#plt.xlabel('# de ejecucion')
+    for t in test:
+
+        sum_tornillo = 0
+        sum_tuerca = 0
+        sum_arandela = 0
+        sum_clavo = 0
+
+        for i in range(0, len(t.feature)-1):
+            sum_tornillo += np.power(np.abs(t.feature[i] - tornillo_mean[i]), 2)
+            sum_tuerca += np.power(np.abs(t.feature[i] - tuerca_mean[i]), 2)
+            sum_arandela += np.power(np.abs(t.feature[i] - arandela_mean[i]), 2)
+            sum_clavo += np.power(np.abs(t.feature[i] - clavo_mean[i]), 2)
+
+        dist_tornillo = np.sqrt(sum_tornillo)
+        dist_tuerca = np.sqrt(sum_tuerca)
+        dist_arandela = np.sqrt(sum_arandela)
+        dist_clavo = np.sqrt(sum_clavo)
+        # print(dist_tornillo, dist_tuerca, dist_arandela,dista_clavo)
+
+        aux = dist_tornillo
+        if (dist_tuerca < aux):
+            aux = dist_tuerca
+        if (dist_arandela < aux):
+            aux = dist_arandela
+        if (dist_clavo < aux):
+            aux = dist_clavo
+
+        if (aux == dist_tornillo):
+            label = 'tornillo'
+        if (aux == dist_tuerca):
+            label = 'tuerca'
+        if (aux == dist_arandela):
+            label = 'arandela'
+        if (aux == dist_clavo):
+            label = 'clavo'
+        
+        if (t.label == label):
+            correct += 1
+    
+    return correct
+
+##Rendimiento
+data = data_analysis()
+test = test_analysis()
+
+means = kmeans_train(data)
+
+MAX = 50
+
+ans = []
+
+for i in range(0, MAX):
+    ans.append(kmeans(test, means))
+    
+for i in range(0, len(ans)):
+    ans[i] = ans[i] * 100 / len(test)
+
+fig, ax = plt.subplots()
+ax.plot(ans)
+ax.grid(True)
+ax.set_title('Rendimiento en diferentes ejecuciones')
+plt.ylabel('Predicciones correctas (%)')
+plt.xlabel('# de ejecucion')
+plt.show()
