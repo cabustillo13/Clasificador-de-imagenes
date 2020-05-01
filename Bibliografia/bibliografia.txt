@@ -1,3 +1,11 @@
+[LIBROS]
+Procesado digital de señales - 2: Fundamentos para comunicaciones y control por Eduard Bertran Albertí
+
+Inteligencia Artificial. Un Enfoque Moderno por Stuart Russell - Peter Norvig
+
+Informe de Reconocimiento de objetos en fotografías por Wilfrido Gómez Flores
+
+[INTERNET]
 https://pythoneyes.wordpress.com/2017/05/22/extraccion-de-datos-valores-de-pixel-de-una-imagen/
 
 https://pythoneyes.wordpress.com/2017/05/24/segmentacion-por-umbral-binarizacion-de-una-imagen/
