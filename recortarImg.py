@@ -1,7 +1,7 @@
 #NOTA: Consideramos que este programa solo es capaz de analizar un objeto dentro de la imagen
 import cv2
 
-imagen = cv2.imread("ejemplos/arandela_internet_cut.jpg")
+imagen = cv2.imread("ejemplos/arandela_internet.jpg")
 grises = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
 bordes = cv2.Canny(grises, 100, 200)
 

@@ -1,6 +1,6 @@
 import cv2
 
-#imagen = cv2.imread('ejemplos/arandela_prueba.jpg')
+#imagen = cv2.imread('ejemplos/arandela_internet.jpg')
 #imagen = cv2.imread('ejemplos/arandelas2_internet.png')
 #imagen = cv2.imread('ejemplos/monedas.jpg')
 imagen = cv2.imread('ejemplos/tornillo_prueba.jpg')
