@@ -8,6 +8,7 @@ from skimage import io
 
 prueba = './ejemplos/tornillo_prueba.jpg'
 tornillo = io.imread(prueba)
+print(tornillo.shape)
 #El modulo io tiene utilidades para leer y escribir imagenes en varios formatos.
 #io.imread lectura y escritura de las imagenes via imread
 
