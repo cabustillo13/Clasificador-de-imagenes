@@ -8,7 +8,7 @@ from skimage import io
 
 prueba = './ejemplos/tornillo_prueba.jpg'
 tornillo = io.imread(prueba)
-print(tornillo.shape)
+#print(tornillo.shape)
 #El modulo io tiene utilidades para leer y escribir imagenes en varios formatos.
 #io.imread lectura y escritura de las imagenes via imread
 
@@ -18,7 +18,6 @@ tornillo = cv2.resize(tornillo, fixed_size)
 
 print(tornillo.shape)
 #Devuelve la estructura de la imagen.En este caso nos devolvera (300,400,3).
-#En este caso es una matriz de 3024x4032 pixeles y 3 capas correspondientes a los colores rojo, verde y azul. 
 #Es importante aclarar que mas adelante veremos que la imagen la podemos describir como un array de de esas 3 capas (RGB).
 plt.imshow(tornillo)
 plt.show()
