@@ -5,6 +5,10 @@ Inteligencia Artificial. Un Enfoque Moderno por Stuart Russell - Peter Norvig
 
 Informe de Reconocimiento de objetos en fotografías por Wilfrido Gómez Flores
 
+Presentación de "Reconocimiento de objetos" por Nacio Murguia
+
+Técnicas y algoritmos básicos de visión Artificial por Grupo de Investigación EDMANS
+
 [INTERNET]
 https://pythoneyes.wordpress.com/2017/05/22/extraccion-de-datos-valores-de-pixel-de-una-imagen/
 
@@ -31,3 +35,5 @@ https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-s
 https://docs.opencv.org
 
 https://omes-va.com
+
+
