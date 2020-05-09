@@ -10,6 +10,8 @@ Presentación de "Reconocimiento de objetos" por Nacio Murguia
 Técnicas y algoritmos básicos de visión Artificial por Grupo de Investigación EDMANS
 
 [INTERNET]
+https://www.aprendemachinelearning.com
+
 https://pythoneyes.wordpress.com/2017/05/22/extraccion-de-datos-valores-de-pixel-de-una-imagen/
 
 https://pythoneyes.wordpress.com/2017/05/24/segmentacion-por-umbral-binarizacion-de-una-imagen/
