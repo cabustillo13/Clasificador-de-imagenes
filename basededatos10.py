@@ -20,7 +20,9 @@ def img2grey(image, mode='sk'):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     return gray
 
-def normSize(image, size=(tuple((400, 300)))):
+##MODIFICAR ESTAS DIMENSIONES
+#def normSize(image, size=(tuple((400, 300)))):
+def normSize(image, size=(tuple((1080, 1220)))):
     image = cv2.resize(image, size)
     return image
 
@@ -84,10 +86,15 @@ def stats(arr):
     return med, dstd
 
 #Base de Datos
-tornillo = io.ImageCollection('./data/tornillos/*.png:./data/tornillos/*.jpg')
-tuerca = io.ImageCollection('./data/tuercas/*.png:./data/tuercas/*.jpg')
-arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
-clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
+#tornillo = io.ImageCollection('./data/tornillos/*.png:./data/tornillos/*.jpg')
+#tuerca = io.ImageCollection('./data/tuercas/*.png:./data/tuercas/*.jpg')
+#arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
+#clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
+
+tornillo = io.ImageCollection('./Data Base/YTrain/Tornillos/*.png:./Data Base/YTrain/Tornillos/*.jpg')
+tuerca = io.ImageCollection('./Data Base/YTrain/Tuercas/*.png:./Data Base/YTrain/Tuercas/*.jpg')
+arandela = io.ImageCollection('./Data Base/YTrain/Arandelas/*.png:./Data Base/YTrain/Arandelas/*.jpg')
+clavo = io.ImageCollection('./Data Base/YTrain/Clavos/*.png:./Data Base/YTrain/Clavos/*.jpg')
 
 class Elemento:
     def __init__(self):
@@ -191,7 +198,12 @@ print(len(data))
 
 # Elemento a evaluar
 test = Elemento()
-image = io.imread('./ejemplos/arandela10_test.jpg') ##Esto es algo que podriamos variar por teclado
+
+#image = io.imread('./Data Base/YTest/Tornillos/photo9.jpg')
+image = io.imread('./Data Base/YTrain/Tuercas/photo13.jpg')
+
+
+#image = io.imread('./ejemplos/arandela10_test.jpg') ##Esto es algo que podriamos variar por teclado
 test.image, test.feature = ft_extract(image)
 test.label = 'Arandela' # label inicial ##Esto es algo que podriamos variar por teclado
 

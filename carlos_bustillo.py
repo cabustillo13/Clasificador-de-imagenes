@@ -21,6 +21,7 @@ def img2grey(image, mode='sk'):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     return gray
 
+##MODIFICAR ESTO osea las dimensiones
 def normSize(image, size=(tuple((400, 300)))):
     image = cv2.resize(image, size)
     return image
@@ -117,11 +118,16 @@ def ft_extract(image):
 ##Training base de datos
 def data_analysis():
 
-    tornillo = io.ImageCollection('./data/tornillos/*.png:./data/tornillos/*.jpg')
-    tuerca = io.ImageCollection('./data/tuercas/*.png:./data/tuercas/*.jpg')
-    arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
-    clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
+    #tornillo = io.ImageCollection('./data/tornillos/*.png:./data/tornillos/*.jpg')
+    #tuerca = io.ImageCollection('./data/tuercas/*.png:./data/tuercas/*.jpg')
+    #arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
+    #clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
 
+    tornillo = io.ImageCollection('./Data Base/YTrain/Tornillos/*.png:./Data Base/YTrain/Tornillos/*.jpg')
+    tuerca = io.ImageCollection('./Data Base/YTrain/Tuercas/*.png:./Data Base/YTrain/Tuercas/*.jpg')
+    arandela = io.ImageCollection('./Data Base/YTrain/Arandelas/*.png:./Data Base/YTrain/Arandelas/*.jpg')
+    clavo = io.ImageCollection('./Data Base/YTrain/Clavos/*.png:./Data Base/YTrain/Clavos/*.jpg')
+    
     data = []
     i = 0
 
@@ -171,11 +177,16 @@ def data_analysis():
 ##Testing base de datos
 def test_analysis():
 
-    tornillo_test = io.ImageCollection('./testeo/tornillos/*.png:./testeo/tornillos/*.jpg')
-    tuerca_test = io.ImageCollection('./testeo/tuercas/*.png:./testeo/tuercas/*.jpg')
-    arandela_test = io.ImageCollection('./testeo/arandelas/*.png:./testeo/arandelas/*.jpg')
-    clavo_test = io.ImageCollection('./testeo/clavos/*.png:./testeo/clavos/*.jpg')
+    #tornillo_test = io.ImageCollection('./testeo/tornillos/*.png:./testeo/tornillos/*.jpg')
+    #tuerca_test = io.ImageCollection('./testeo/tuercas/*.png:./testeo/tuercas/*.jpg')
+    #arandela_test = io.ImageCollection('./testeo/arandelas/*.png:./testeo/arandelas/*.jpg')
+    #clavo_test = io.ImageCollection('./testeo/clavos/*.png:./testeo/clavos/*.jpg')
 
+    tornillo_test = io.ImageCollection('./Data Base/YTest/Tornillos/*.png:./Data Base/YTest/Tornillos/*.jpg')
+    tuerca_test = io.ImageCollection('./Data Base/YTest/Tuercas/*.png:./Data Base/YTest/Tuercas/*.jpg')
+    arandela_test = io.ImageCollection('./Data Base/YTest/Arandelas/*.png:./Data Base/YTest/Arandelas/*.jpg')
+    clavo_test = io.ImageCollection('./Data Base/YTest/Clavos/*.png:./Data Base/YTest/Clavos/*.jpg')
+    
     test = []
     i = 0
 
