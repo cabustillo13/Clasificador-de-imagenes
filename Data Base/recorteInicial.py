@@ -4,16 +4,19 @@ import cv2
 import numpy as np
 
 ##Carpeta donde quiero hacer el recorte de las imagenes
-carpeta="Clavos"
-#carpeta="Tuercas"
+#carpeta="Clavos"
+carpeta="Tuercas"
 #carpeta="Arandelas"
 #carpeta = "Tornillos"
 
 
 ##INICIALIZACION
-path="/home/carlos/Documentos/Image-Classifier/Data Base/"
-#path="/home/carlos/Documentos/Data Base/"
-for i in range(100): #Arranca en 0 y termina en 100-1
+#path="/home/carlos/Documentos/Image-Classifier/Data Base/YTest/"
+path="/home/carlos/Documentos/Image-Classifier/Data Base/YTrain/"
+
+for i in range(151): #Arranca en 0 y termina en 151-1 -> PARA YTrain
+#for i in range(39): #Arranca en 0 y termina en 39-1 -> PARA YTest
+
     nombre= path+carpeta+"/"+"photo"+str(i)+".jpg"
 
     imagen = cv2.imread(nombre)

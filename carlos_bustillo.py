@@ -123,10 +123,10 @@ def data_analysis():
     #arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
     #clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
 
-    tornillo = io.ImageCollection('./Data Base/YTrain/Tornillos/*.png:./Data Base/YTrain/Tornillos/*.jpg')
-    tuerca = io.ImageCollection('./Data Base/YTrain/Tuercas/*.png:./Data Base/YTrain/Tuercas/*.jpg')
-    arandela = io.ImageCollection('./Data Base/YTrain/Arandelas/*.png:./Data Base/YTrain/Arandelas/*.jpg')
-    clavo = io.ImageCollection('./Data Base/YTrain/Clavos/*.png:./Data Base/YTrain/Clavos/*.jpg')
+    tornillo = io.ImageCollection('./Data Base/YTrain/ZTornillos/*.png:./Data Base/YTrain/ZTornillos/*.jpg')
+    tuerca = io.ImageCollection('./Data Base/YTrain/ZTuercas/*.png:./Data Base/YTrain/ZTuercas/*.jpg')
+    arandela = io.ImageCollection('./Data Base/YTrain/ZArandelas/*.png:./Data Base/YTrain/ZArandelas/*.jpg')
+    clavo = io.ImageCollection('./Data Base/YTrain/ZClavos/*.png:./Data Base/YTrain/ZClavos/*.jpg')
     
     data = []
     i = 0
@@ -182,10 +182,10 @@ def test_analysis():
     #arandela_test = io.ImageCollection('./testeo/arandelas/*.png:./testeo/arandelas/*.jpg')
     #clavo_test = io.ImageCollection('./testeo/clavos/*.png:./testeo/clavos/*.jpg')
 
-    tornillo_test = io.ImageCollection('./Data Base/YTest/Tornillos/*.png:./Data Base/YTest/Tornillos/*.jpg')
-    tuerca_test = io.ImageCollection('./Data Base/YTest/Tuercas/*.png:./Data Base/YTest/Tuercas/*.jpg')
-    arandela_test = io.ImageCollection('./Data Base/YTest/Arandelas/*.png:./Data Base/YTest/Arandelas/*.jpg')
-    clavo_test = io.ImageCollection('./Data Base/YTest/Clavos/*.png:./Data Base/YTest/Clavos/*.jpg')
+    tornillo_test = io.ImageCollection('./Data Base/YTest/ZTornillos/*.png:./Data Base/YTest/ZTornillos/*.jpg')
+    tuerca_test = io.ImageCollection('./Data Base/YTest/ZTuercas/*.png:./Data Base/YTest/ZTuercas/*.jpg')
+    arandela_test = io.ImageCollection('./Data Base/YTest/ZArandelas/*.png:./Data Base/YTest/ZArandelas/*.jpg')
+    clavo_test = io.ImageCollection('./Data Base/YTest/ZClavos/*.png:./Data Base/YTest/ZClavos/*.jpg')
     
     test = []
     i = 0

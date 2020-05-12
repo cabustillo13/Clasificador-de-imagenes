@@ -32,7 +32,9 @@ def imgEdge(image, mode='sk'):
         edge = cv2.Laplacian(image, cv2.CV_64F)
     return edge
 
-img = io.imread('./ejemplos/tornillo_prueba.jpg')
+img = io.imread('./ejemplos/photo101.jpg')
+#img = io.imread('./ejemplos/tornillo_prueba.jpg')
+#img = io.imread('./Data Base/YTest/ZTornillos/photo100.jpg')
 
 tornillo = img2gray(img)
 tornillo = normSize(tornillo)
