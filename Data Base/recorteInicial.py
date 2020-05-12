@@ -11,11 +11,11 @@ carpeta="Clavos"
 
 
 ##INICIALIZACION
-#path="/home/carlos/Documentos/Image-Classifier/Data Base/YTest/"
-path="/home/carlos/Documentos/Image-Classifier/Data Base/YTrain/"
+path="/home/carlos/Documentos/Image-Classifier/Data Base/YTest/"
+#path="/home/carlos/Documentos/Image-Classifier/Data Base/YTrain/"
 
-for i in range(151): #Arranca en 0 y termina en 151-1 -> PARA YTrain
-#for i in range(39): #Arranca en 0 y termina en 39-1 -> PARA YTest
+#for i in range(151): #Arranca en 0 y termina en 151-1 -> PARA YTrain
+for i in range(39): #Arranca en 0 y termina en 39-1 -> PARA YTest
 
     nombre= path+carpeta+"/"+"photo"+str(i)+".jpg"
 

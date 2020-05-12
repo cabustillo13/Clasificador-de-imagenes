@@ -21,8 +21,8 @@ def img2grey(image, mode='sk'):
     return gray
 
 ##MODIFICAR ESTAS DIMENSIONES
-#def normSize(image, size=(tuple((400, 300)))):
-def normSize(image, size=(tuple((1080, 1220)))):
+def normSize(image, size=(tuple((500, 400)))):
+#def normSize(image, size=(tuple((1080, 1220)))):
     image = cv2.resize(image, size)
     return image
 

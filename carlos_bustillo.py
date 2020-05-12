@@ -22,7 +22,8 @@ def img2grey(image, mode='sk'):
     return gray
 
 ##MODIFICAR ESTO osea las dimensiones
-def normSize(image, size=(tuple((400, 300)))):
+def normSize(image, size=(tuple((500, 400)))):
+#def normSize(image, size=(tuple((1080, 1220)))):
     image = cv2.resize(image, size)
     return image
 
@@ -304,7 +305,8 @@ def knn(k, data, test):
 data = data_analysis()
 test = test_analysis()
 
-MAX = 50
+#MAX = 50
+MAX = 150
 
 ans = []
 
@@ -530,7 +532,9 @@ test = test_analysis()
 
 means = kmeans_train(data)
 
-MAX = 50
+#MAX = 50
+MAX = 150
+
 
 ans = []
 
