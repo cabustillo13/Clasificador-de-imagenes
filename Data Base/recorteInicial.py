@@ -4,8 +4,8 @@ import cv2
 import numpy as np
 
 ##Carpeta donde quiero hacer el recorte de las imagenes
-#carpeta="Clavos"
-carpeta="Tuercas"
+carpeta="Clavos"
+#carpeta="Tuercas"
 #carpeta="Arandelas"
 #carpeta = "Tornillos"
 
