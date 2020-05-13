@@ -7,13 +7,15 @@ import cv2
 from skimage import io
 #Las fotos de entrada estan en formato png o jpeg
 
-prueba = './ejemplos/tornillo_prueba.jpg'
+prueba = './Data Base/YTrain/ZArandelas/photo0.jpg'
+#prueba = './ejemplos/tornillo_prueba.jpg'
+
 tornillo = io.imread(prueba)
 #El modulo io tiene utilidades para leer y escribir imagenes en varios formatos.
 #io.imread lectura y escritura de las imagenes via imread
 
 #Redimensionamiento de la imagen de entrada
-fixed_size = tuple((400, 300))
+fixed_size = tuple((500, 400))
 tornillo = cv2.resize(tornillo, fixed_size)
 
 #Conversion a escalas de grises haciendo uso del modulo de scikit

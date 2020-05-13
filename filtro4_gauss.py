@@ -7,7 +7,9 @@ from skimage import io,filters
 
 #Las fotos de entrada estan en formato png o jpeg
 
-prueba = './ejemplos/tornillo_prueba.jpg'
+prueba = './Data Base/YTrain/ZArandelas/photo0.jpg'
+#prueba = './ejemplos/tornillo_prueba.jpg'
+
 tornillo = io.imread(prueba)
 #El modulo io tiene utilidades para leer y escribir imagenes en varios formatos.
 #io.imread lectura y escritura de las imagenes via imread

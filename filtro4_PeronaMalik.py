@@ -3,7 +3,9 @@ from scipy import misc, ndimage
 import matplotlib.pyplot as plt
 
 # SETTINGS:
-image_file = './ejemplos/tornillo_prueba.jpg'
+image_file = './Data Base/YTrain/ZArandelas/photo0.jpg'
+#image_file = './ejemplos/tornillo_prueba.jpg'
+
 iterations = 30
 delta = 0.14
 kappa = 15

@@ -20,9 +20,7 @@ def img2grey(image, mode='sk'):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     return gray
 
-##MODIFICAR ESTAS DIMENSIONES
-def normSize(image, size=(tuple((500, 400)))):
-#def normSize(image, size=(tuple((1080, 1220)))):
+def normSize(image, size=(tuple((500, 400)))): #Paso del tamano 1080x1220 a 500x400
     image = cv2.resize(image, size)
     return image
 
@@ -199,8 +197,8 @@ print(len(data))
 # Elemento a evaluar
 test = Elemento()
 
-image = io.imread('./Data Base/YTest/ZClavos/photo99.jpg')
-#image = io.imread('./Data Base/YTrain/ZTuercas/photo7.jpg')
+#image = io.imread('./Data Base/YTest/ZClavos/photo99.jpg')
+image = io.imread('./Data Base/YTrain/ZArandelas/photo0.jpg')
 
 
 #image = io.imread('./ejemplos/arandela10_test.jpg') ##Esto es algo que podriamos variar por teclado

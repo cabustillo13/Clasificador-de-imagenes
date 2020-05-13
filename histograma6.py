@@ -14,7 +14,7 @@ def img2gray(image, mode='sk'):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     return gray
 
-def normSize(image, size=(tuple((400, 300)))):
+def normSize(image, size=(tuple((500, 400)))):
     image = cv2.resize(image, size)
     return image
 
@@ -32,7 +32,8 @@ def imgEdge(image, mode='sk'):
         edge = cv2.Laplacian(image, cv2.CV_64F)
     return edge
 
-img = io.imread('./ejemplos/tornillo_prueba.jpg')
+img = io.imread('./Data Base/YTrain/ZArandelas/photo0.jpg')
+#img = io.imread('./ejemplos/tornillo_prueba.jpg')
 
 tornillo = img2gray(img)
 tornillo = normSize(tornillo)

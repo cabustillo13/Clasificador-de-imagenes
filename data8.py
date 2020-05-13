@@ -14,7 +14,7 @@ def img2gray(image, mode='sk'):
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     return gray
 
-def normSize(image, size=(tuple((400, 300)))):
+def normSize(image, size=(tuple((500, 400)))):
     image = cv2.resize(image, size)
     return image
 
@@ -40,10 +40,10 @@ def threshold(image, mode='sk'):
     return (image < th)
 
 #Determinacion de la base de datos
-tornillo = io.ImageCollection('./data/tornillos/*.png:./data/tornillos/*.jpg')
-tuerca = io.ImageCollection('./data/tuercas/*.png:./data/tuercas/*.jpg')
-arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
-clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
+tornillo = io.ImageCollection('./Data Base/YTrain/ZTornillos/*.png:./Data Base/YTrain/ZTornillos/*.jpg')
+tuerca = io.ImageCollection('./Data Base/YTrain/ZTuercas/*.png:./Data Base/YTrain/ZTuercas/*.jpg')
+arandela = io.ImageCollection('./Data Base/YTrain/ZArandelas/*.png:./Data Base/YTrain/ZArandelas/*.jpg')
+clavo = io.ImageCollection('./Data Base/YTrain/ZClavos/*.png:./Data Base/YTrain/ZClavos/*.jpg')
 
 tornillo_gray = []
 tornillo_n = []

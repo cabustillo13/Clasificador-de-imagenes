@@ -1,9 +1,10 @@
 import cv2
 
+imagen = cv2.imread('Data Base/YTrain/ZArandelas/photo0.jpg')
 #imagen = cv2.imread('ejemplos/arandela_internet.jpg')
 #imagen = cv2.imread('ejemplos/arandelas2_internet.png')
 #imagen = cv2.imread('ejemplos/monedas.jpg')
-imagen = cv2.imread('ejemplos/tornillo_prueba.jpg')
+#imagen = cv2.imread('ejemplos/tornillo_prueba.jpg')
 
 grises = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
 _,th =  cv2.threshold(grises, 240, 255, cv2.THRESH_BINARY_INV)
@@ -30,7 +31,10 @@ for c in cnts:
 	cv2.waitKey(0)
 	i = i+1
 
-path="/home/carlos/Documentos/Image-Classifier/ejemplos/"
-fileb="contadorObj2.jpg"
+#path="/home/carlos/Documentos/Image-Classifier/ejemplos/"
+#fileb="contadorObj2.jpg"
+path="/home/carlos/Documentos/Image-Classifier/Figures/"
+fileb="Figure_26.png"
+
 cv2.imwrite(path + fileb, imagen)
 cv2.destroyAllWindows()

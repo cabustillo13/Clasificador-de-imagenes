@@ -6,18 +6,20 @@ import cv2
 from skimage import io
 #Las fotos de entrada estan en formato png o jpeg
 
-prueba = './ejemplos/tornillo_prueba.jpg'
+prueba = './Data Base/YTrain/ZArandelas/photo0.jpg'
+#prueba = './ejemplos/tornillo_prueba.jpg'
+
 tornillo = io.imread(prueba)
 #print(tornillo.shape)
 #El modulo io tiene utilidades para leer y escribir imagenes en varios formatos.
 #io.imread lectura y escritura de las imagenes via imread
 
 #Redimensionamiento de la imagen de entrada
-fixed_size = tuple((400, 300))
+fixed_size = tuple((500, 400))
 tornillo = cv2.resize(tornillo, fixed_size)
 
 print(tornillo.shape)
-#Devuelve la estructura de la imagen.En este caso nos devolvera (300,400,3).
+#Devuelve la estructura de la imagen.En este caso nos devolvera (400,500,3).
 #Es importante aclarar que mas adelante veremos que la imagen la podemos describir como un array de de esas 3 capas (RGB).
 plt.imshow(tornillo)
 plt.show()
