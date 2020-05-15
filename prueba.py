@@ -41,13 +41,13 @@ def imgEdge(image, mode='sk'):
     return edge
 
 #Segmentacion
-
 def threshold(image, mode='sk'):
     if (mode == 'sk'):
         th = filters.threshold_isodata(image)
     elif (mode == 'cv'):
         ret, th = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-    return (image < th) #Hace que retorne solo el menor th
+    return th
+    #return (image < th) #Hace que retorne solo el menor th -> devuelve una tuple de booleanos confirmando/negando esa condicion
 
 #Extraccion de rasgos
 def m_hog(image):
@@ -87,24 +87,25 @@ class Elemento:
 def ft_extract(image):
     image = normSize(image)
     aux = img2grey(image, mode='cv') #Convertir a escala de grises
-    #aux = imgClean(aux, mode='cv')   #Aplicar filtro gaussiano
-    aux = imgEdge(aux)               #Aplicar filtro Sobel o Laplaciano
+    aux = imgClean(aux, mode='cv')   #Aplicar filtro gaussiano
+    #aux = imgEdge(aux)               #Aplicar filtro Sobel o Laplaciano
     
-    #aux = threshold(aux, mode='cv') #Aplicar thresholding isodata u otsu
+    #Solo funciona para imagenes cortadas -> porque sino el fondo afecta mucho el objeto dentro de la imagen
+    aux = threshold(aux, mode='cv') #Aplicar thresholding isodata u otsu
     #image = imgClean(image, mode='cv')
     
     #image_fht = haralick(aux)
-    #image_fhm = hu_moments(aux)
-    image_fhog = m_hog(aux)
+    image_fhm = hu_moments(aux)
+    #image_fhog = m_hog(aux)
 
     #feature = np.hstack([image_fht, image_fhm, image_fhog])
     #feature = feature.reshape(1, -1) #Esto permite: "The new shape should be compatible with the original shape" -> una sola fila
     
     "Para 3 elementos"
     ##PARA MOMENTOS DE HU
-    #return aux, [image_fhm[0], image_fhm[1], image_fhm[3]]
+    return aux, [image_fhm[0], image_fhm[1], image_fhm[3]]
     ##PARA HISTOGRAM OF ORIENTED GRADIENT
-    return aux, [image_fhog[0], image_fhog[1], image_fhog[3]]
+    #return aux, [image_fhog[0], image_fhog[1], image_fhog[3]]
     ##PARA HARALICK
     #return aux, [image_fht[0], image_fht[1], image_fht[3]]
 

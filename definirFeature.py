@@ -94,65 +94,72 @@ for i in range(0, len(clavo)):
     clavo_edge.append(imgEdge(clavo_gray[i]))
     
 #HOG: Histograma de gradientes orientados
-#from skimage.feature import hog
+from skimage.feature import hog
 
-#def m_hog(image):
-#    feature = hog(image, block_norm='L2-Hys').ravel()
-#    return feature
-
-##3 tornillos distintos
-#print("Entre 3 tornillos")
-#t1_fhog = m_hog(tornillo_gray[0])
-#print(t1_fhog)
-#t2_fhog = m_hog(tornillo_gray[1])
-#print(t2_fhog)
-#t3_fhog = m_hog(tornillo_gray[2])
-#print(t3_fhog)
-
-##Entre tornillo, tuerca, arandela y clavo
-#print("Entre tornillo, tuerca, arandela y clavo")
-#tornillo_fhog = m_hog(tornillo_gray[0])
-#print(tornillo_fhog)
-#clavo_fhog = m_hog(clavo_gray[0])
-#print(clavo_fhog)
-#tuerca_fhog = m_hog(tuerca_gray[0])
-#print(tuerca_fhog)
-#arandela_fhog = m_hog(arandela_gray[0])
-#print(arandela_fhog)
-
-#Haralick Textura
-import mahotas
-
-def haralick(image):
-    feature = mahotas.features.haralick(image).mean(axis=0)
+def m_hog(image):
+    feature = hog(image, block_norm='L2-Hys').ravel()
     return feature
 
 ##Entre 5 arandelas distintos
 print("Entre 5 arandelas distintos")
 for j in range(5):
-    print(haralick(arandela_gray[j]))
+    print(m_hog(arandela_gray[j]))
 
 ##Entre 5 clavos distintos
 print("Entre 5 clavos distintos")
 for j in range(5):
-    print(haralick(clavo_gray[j]))
+    print(m_hog(clavo_gray[j]))
           
 ##Entre 5 tornillos distintos
 print("Entre 5 tornillos distintos")
 for j in range(5):
-    print(haralick(tornillo_gray[j]))
+    print(m_hog(tornillo_gray[j]))
 
 ##Entre 5 tuercas distintos
 print("Entre 5 tuercas distintos")
 for j in range(5):
-    print(haralick(tuerca_gray[j]))
+    print(m_hog(tuerca_gray[j]))
           
 ##Entre tornillo, tuerca, arandela y clavo
-print("Entre tornillo, tuerca, arandela y clavo")
-print(haralick(tornillo_gray[0]))
-print(haralick(clavo_gray[0]))
-print(haralick(tuerca_gray[0]))
-print(haralick(arandela_gray[0]))
+print("Entre tornillo, clavo, tuerca y arandela")
+print(m_hog(tornillo_gray[0]))
+print(m_hog(clavo_gray[0]))
+print(m_hog(tuerca_gray[0]))
+print(m_hog(arandela_gray[0]))
+
+#Haralick Textura
+#import mahotas
+
+#def haralick(image):
+#    feature = mahotas.features.haralick(image).mean(axis=0)
+#    return feature
+
+##Entre 5 arandelas distintos
+#print("Entre 5 arandelas distintos")
+#for j in range(5):
+#    print(haralick(arandela_gray[j]))
+
+##Entre 5 clavos distintos
+#print("Entre 5 clavos distintos")
+#for j in range(5):
+#    print(haralick(clavo_gray[j]))
+          
+##Entre 5 tornillos distintos
+#print("Entre 5 tornillos distintos")
+#for j in range(5):
+#    print(haralick(tornillo_gray[j]))
+
+##Entre 5 tuercas distintos
+#print("Entre 5 tuercas distintos")
+#for j in range(5):
+#    print(haralick(tuerca_gray[j]))
+          
+##Entre tornillo, tuerca, arandela y clavo
+#print("Entre tornillo, tuerca, arandela y clavo")
+#print(haralick(tornillo_gray[0]))
+#print(haralick(clavo_gray[0]))
+#print(haralick(tuerca_gray[0]))
+#print(haralick(arandela_gray[0]))
 
 ##Momentos de Hu
 #def hu_moments(image):
