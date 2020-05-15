@@ -62,14 +62,6 @@ def haralick(image):
     feature= mahotas.features.haralick(image).mean(axis=0)
     return feature
 
-def color_histogram(image, mask=None, bins=8):
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    hist = cv2.calcHist([image], [0, 1, 2], None, [bins, bins, bins],
-                        [0, 256, 0, 256, 0, 256])
-    cv2.normalize(hist, hist)
-    feature = hist.flatten()
-    return feature
-
 #Reduccion de dimensiones
 def stats(arr):
     
@@ -95,7 +87,7 @@ class Elemento:
 def ft_extract(image):
     image = normSize(image)
     aux = img2grey(image, mode='cv') #Convertir a escala de grises
-    aux = imgClean(aux, mode='cv')   #Aplicar filtro gaussiano
+    #aux = imgClean(aux, mode='cv')   #Aplicar filtro gaussiano
     aux = imgEdge(aux)               #Aplicar filtro Sobel o Laplaciano
     
     #aux = threshold(aux, mode='cv') #Aplicar thresholding isodata u otsu
@@ -103,18 +95,27 @@ def ft_extract(image):
     
     #image_fht = haralick(aux)
     #image_fhm = hu_moments(aux)
-    image_fch = color_histogram(image)
-    #image_fhog = m_hog(aux)
+    image_fhog = m_hog(aux)
 
     #feature = np.hstack([image_fht, image_fhm, image_fhog])
-    med, dstd = stats(image_fch)
-    #feature = feature.reshape(1, -1)
-
-    return aux, [med, dstd]
+    #feature = feature.reshape(1, -1) #Esto permite: "The new shape should be compatible with the original shape" -> una sola fila
     
+    "Para 3 elementos"
     ##PARA MOMENTOS DE HU
     #return aux, [image_fhm[0], image_fhm[1], image_fhm[3]]
+    ##PARA HISTOGRAM OF ORIENTED GRADIENT
+    return aux, [image_fhog[0], image_fhog[1], image_fhog[3]]
+    ##PARA HARALICK
+    #return aux, [image_fht[0], image_fht[1], image_fht[3]]
 
+    "Para todos los elementos -> datos en crudo"
+    ##PARA MOMENTOS DE HU
+    #return aux, image_fhm
+    ##PARA HARALICK
+    #return aux, image_fht
+    ##PARA HISTOGRAM OF ORIENTED GRADIENT
+    #return aux, image_fhog
+    
 #Analisis de la base de datos
 ##Training base de datos
 def data_analysis():
@@ -295,8 +296,8 @@ def knn(k, data, test):
 data = data_analysis()
 test = test_analysis()
 
-#MAX = 50
-MAX = 150
+MAX = 120
+#MAX = 150
 
 ans = []
 
@@ -522,8 +523,8 @@ test = test_analysis()
 
 means = kmeans_train(data)
 
-#MAX = 50
-MAX = 150
+MAX = 50
+#MAX = 150
 
 
 ans = []
