@@ -91,24 +91,38 @@ def ft_extract(image):
     #aux = imgEdge(aux)               #Aplicar filtro Sobel o Laplaciano
     
     #Solo funciona para imagenes cortadas -> porque sino el fondo afecta mucho el objeto dentro de la imagen
-    aux = threshold(aux, mode='cv') #Aplicar thresholding isodata u otsu
+    #aux = threshold(aux, mode='cv') #Aplicar thresholding isodata u otsu
     #image = imgClean(image, mode='cv')
     
-    #image_fht = haralick(aux)
+    image_fht = haralick(aux)
     image_fhm = hu_moments(aux)
     #image_fhog = m_hog(aux)
 
     #feature = np.hstack([image_fht, image_fhm, image_fhog])
     #feature = feature.reshape(1, -1) #Esto permite: "The new shape should be compatible with the original shape" -> una sola fila
     
+    "Para 2 elementos"
+    ##PARA MOMENTOS DE HU
+    #return aux, [image_fhm[0], image_fhm[1]]
+    ##PARA HISTOGRAM OF ORIENTED GRADIENT
+    #return aux, [image_fhog[0], image_fhog[1]]
+    ##PARA HARALICK
+    #return aux, [image_fht[0], image_fht[1]]
+    
     "Para 3 elementos"
     ##PARA MOMENTOS DE HU
-    return aux, [image_fhm[0], image_fhm[1], image_fhm[3]]
+    #return aux, [image_fhm[0], image_fhm[1], image_fhm[2]]
     ##PARA HISTOGRAM OF ORIENTED GRADIENT
-    #return aux, [image_fhog[0], image_fhog[1], image_fhog[3]]
+    #return aux, [image_fhog[0], image_fhog[1], image_fhog[2]]
     ##PARA HARALICK
-    #return aux, [image_fht[0], image_fht[1], image_fht[3]]
-
+    #return aux, [image_fht[0], image_fht[1], image_fht[2]]
+    
+    "Para 4 elementos"
+    ##PARA HARALICK
+    #return aux, [image_fht[0], image_fht[1], image_fht[2],image_fht[3]]
+    ##PARA MOMENTOS DE HU
+    #return aux, [image_fhm[0], image_fhm[1], image_fhm[2], image_fhm[3]]
+    
     "Para todos los elementos -> datos en crudo"
     ##PARA MOMENTOS DE HU
     #return aux, image_fhm
@@ -117,14 +131,19 @@ def ft_extract(image):
     ##PARA HISTOGRAM OF ORIENTED GRADIENT
     #return aux, image_fhog
     
+    "Para 8 elementos"
+    #return aux, [image_fht[2], image_fht[3], image_fht[4], image_fht[5], image_fht[6], image_fht[7], image_fht[9], image_fht[11]]
+    
+    "Hu + Haralick"
+    return aux, [image_fhm[0], image_fhm[1], image_fhm[3], image_fht[0], image_fht[1],image_fht[3]]
 #Analisis de la base de datos
 ##Training base de datos
 def data_analysis():
 
-    tornillo = io.ImageCollection('./Data Base/YTrain/ZTornillos/*.png:./Data Base/YTrain/ZTornillos/*.jpg')
-    tuerca = io.ImageCollection('./Data Base/YTrain/ZTuercas/*.png:./Data Base/YTrain/ZTuercas/*.jpg')
-    arandela = io.ImageCollection('./Data Base/YTrain/ZArandelas/*.png:./Data Base/YTrain/ZArandelas/*.jpg')
-    clavo = io.ImageCollection('./Data Base/YTrain/ZClavos/*.png:./Data Base/YTrain/ZClavos/*.jpg')
+    tornillo = io.ImageCollection('./Data Base/YTrain/XTornillos/*.png:./Data Base/YTrain/XTornillos/*.jpg')
+    tuerca = io.ImageCollection('./Data Base/YTrain/XTuercas/*.png:./Data Base/YTrain/XTuercas/*.jpg')
+    arandela = io.ImageCollection('./Data Base/YTrain/XArandelas/*.png:./Data Base/YTrain/XArandelas/*.jpg')
+    clavo = io.ImageCollection('./Data Base/YTrain/XClavos/*.png:./Data Base/YTrain/XClavos/*.jpg')
     
     data = []
     i = 0
@@ -175,10 +194,10 @@ def data_analysis():
 ##Testing base de datos
 def test_analysis():
 
-    tornillo_test = io.ImageCollection('./Data Base/YTest/ZTornillos/*.png:./Data Base/YTest/ZTornillos/*.jpg')
-    tuerca_test = io.ImageCollection('./Data Base/YTest/ZTuercas/*.png:./Data Base/YTest/ZTuercas/*.jpg')
-    arandela_test = io.ImageCollection('./Data Base/YTest/ZArandelas/*.png:./Data Base/YTest/ZArandelas/*.jpg')
-    clavo_test = io.ImageCollection('./Data Base/YTest/ZClavos/*.png:./Data Base/YTest/ZClavos/*.jpg')
+    tornillo_test = io.ImageCollection('./Data Base/YTest/XTornillos/*.png:./Data Base/YTest/XTornillos/*.jpg')
+    tuerca_test = io.ImageCollection('./Data Base/YTest/XTuercas/*.png:./Data Base/YTest/XTuercas/*.jpg')
+    arandela_test = io.ImageCollection('./Data Base/YTest/XArandelas/*.png:./Data Base/YTest/XArandelas/*.jpg')
+    clavo_test = io.ImageCollection('./Data Base/YTest/XClavos/*.png:./Data Base/YTest/XClavos/*.jpg')
     
     test = []
     i = 0
