@@ -88,13 +88,13 @@ def ft_extract(image):
     image = normSize(image)
     aux = img2grey(image, mode='cv') #Convertir a escala de grises
     aux = imgClean(aux, mode='cv')   #Aplicar filtro gaussiano
-    #aux = imgEdge(aux)               #Aplicar filtro Sobel o Laplaciano
+    aux = imgEdge(aux)               #Aplicar filtro Sobel o Laplaciano
     
     #Solo funciona para imagenes cortadas -> porque sino el fondo afecta mucho el objeto dentro de la imagen
     #aux = threshold(aux, mode='cv') #Aplicar thresholding isodata u otsu
     #image = imgClean(image, mode='cv')
     
-    image_fht = haralick(aux)
+    #image_fht = haralick(aux)
     image_fhm = hu_moments(aux)
     #image_fhog = m_hog(aux)
 
@@ -111,11 +111,9 @@ def ft_extract(image):
     
     "Para 3 elementos"
     ##PARA MOMENTOS DE HU
-    #return aux, [image_fhm[0], image_fhm[1], image_fhm[2]]
-    ##PARA HISTOGRAM OF ORIENTED GRADIENT
-    #return aux, [image_fhog[0], image_fhog[1], image_fhog[2]]
+    return aux, [image_fhm[0], image_fhm[1], image_fhm[3]]
     ##PARA HARALICK
-    #return aux, [image_fht[0], image_fht[1], image_fht[2]]
+    #return aux, [image_fht[0], image_fht[1], image_fht[3]]
     
     "Para 4 elementos"
     ##PARA HARALICK
@@ -135,15 +133,16 @@ def ft_extract(image):
     #return aux, [image_fht[2], image_fht[3], image_fht[4], image_fht[5], image_fht[6], image_fht[7], image_fht[9], image_fht[11]]
     
     "Hu + Haralick"
-    return aux, [image_fhm[0], image_fhm[1], image_fhm[3], image_fht[0], image_fht[1],image_fht[3]]
+    #return aux, [image_fhm[0], image_fhm[1], image_fhm[3], image_fht[0], image_fht[1],image_fht[3]]
+
 #Analisis de la base de datos
 ##Training base de datos
 def data_analysis():
 
-    tornillo = io.ImageCollection('./Data Base/YTrain/XTornillos/*.png:./Data Base/YTrain/XTornillos/*.jpg')
-    tuerca = io.ImageCollection('./Data Base/YTrain/XTuercas/*.png:./Data Base/YTrain/XTuercas/*.jpg')
-    arandela = io.ImageCollection('./Data Base/YTrain/XArandelas/*.png:./Data Base/YTrain/XArandelas/*.jpg')
-    clavo = io.ImageCollection('./Data Base/YTrain/XClavos/*.png:./Data Base/YTrain/XClavos/*.jpg')
+    tornillo = io.ImageCollection('./Data Base/YTrain/YTornillos/*.png:./Data Base/YTrain/YTornillos/*.jpg')
+    tuerca = io.ImageCollection('./Data Base/YTrain/YTuercas/*.png:./Data Base/YTrain/YTuercas/*.jpg')
+    arandela = io.ImageCollection('./Data Base/YTrain/YArandelas/*.png:./Data Base/YTrain/YArandelas/*.jpg')
+    clavo = io.ImageCollection('./Data Base/YTrain/YClavos/*.png:./Data Base/YTrain/YClavos/*.jpg')
     
     data = []
     i = 0
@@ -194,10 +193,10 @@ def data_analysis():
 ##Testing base de datos
 def test_analysis():
 
-    tornillo_test = io.ImageCollection('./Data Base/YTest/XTornillos/*.png:./Data Base/YTest/XTornillos/*.jpg')
-    tuerca_test = io.ImageCollection('./Data Base/YTest/XTuercas/*.png:./Data Base/YTest/XTuercas/*.jpg')
-    arandela_test = io.ImageCollection('./Data Base/YTest/XArandelas/*.png:./Data Base/YTest/XArandelas/*.jpg')
-    clavo_test = io.ImageCollection('./Data Base/YTest/XClavos/*.png:./Data Base/YTest/XClavos/*.jpg')
+    tornillo_test = io.ImageCollection('./Data Base/YTest/YTornillos/*.png:./Data Base/YTest/YTornillos/*.jpg')
+    tuerca_test = io.ImageCollection('./Data Base/YTest/YTuercas/*.png:./Data Base/YTest/YTuercas/*.jpg')
+    arandela_test = io.ImageCollection('./Data Base/YTest/YArandelas/*.png:./Data Base/YTest/YArandelas/*.jpg')
+    clavo_test = io.ImageCollection('./Data Base/YTest/YClavos/*.png:./Data Base/YTest/YClavos/*.jpg')
     
     test = []
     i = 0
@@ -544,8 +543,7 @@ test = test_analysis()
 means = kmeans_train(data)
 
 MAX = 50
-#MAX = 150
-
+#MAX = 120
 
 ans = []
 

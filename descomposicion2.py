@@ -18,7 +18,6 @@ fixed_size = tuple((500, 400))
 tornillo = cv2.resize(tornillo, fixed_size)
 
 #Descomposicion de la imagen en matrices correspondientes a las 3 capas RGB previamente mencionadas.
-
 R_tornillo = tornillo[:, :, 0]
 G_tornillo = tornillo[:, :, 1]
 B_tornillo = tornillo[:, :, 2]
@@ -43,3 +42,6 @@ ax_G.imshow(G_tornillo)
 ax_G.set_title('Capa Verde')
 
 plt.show()
+
+#Bibliografia consultada
+#https://scikit-image.org/docs/dev/api/skimage.color.html

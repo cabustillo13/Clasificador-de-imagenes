@@ -89,10 +89,10 @@ def stats(arr):
 #arandela = io.ImageCollection('./data/arandelas/*.png:./data/arandelas/*.jpg')
 #clavo = io.ImageCollection('./data/clavos/*.png:./data/clavos/*.jpg')
 
-tornillo = io.ImageCollection('./Data Base/YTrain/ZTornillos/*.png:./Data Base/YTrain/ZTornillos/*.jpg')
-tuerca = io.ImageCollection('./Data Base/YTrain/ZTuercas/*.png:./Data Base/YTrain/ZTuercas/*.jpg')
-arandela = io.ImageCollection('./Data Base/YTrain/ZArandelas/*.png:./Data Base/YTrain/ZArandelas/*.jpg')
-clavo = io.ImageCollection('./Data Base/YTrain/ZClavos/*.png:./Data Base/YTrain/ZClavos/*.jpg')
+tornillo = io.ImageCollection('./Data Base/YTrain/YTornillos/*.png:./Data Base/YTrain/YTornillos/*.jpg')
+tuerca = io.ImageCollection('./Data Base/YTrain/YTuercas/*.png:./Data Base/YTrain/YTuercas/*.jpg')
+arandela = io.ImageCollection('./Data Base/YTrain/YArandelas/*.png:./Data Base/YTrain/YArandelas/*.jpg')
+clavo = io.ImageCollection('./Data Base/YTrain/YClavos/*.png:./Data Base/YTrain/YClavos/*.jpg')
 
 class Elemento:
     def __init__(self):
@@ -198,7 +198,7 @@ print(len(data))
 test = Elemento()
 
 #image = io.imread('./Data Base/YTest/ZClavos/photo99.jpg')
-image = io.imread('./Data Base/YTrain/ZArandelas/photo0.jpg')
+image = io.imread('./Data Base/YTrain/YTuercas/photo9.jpg')
 
 
 #image = io.imread('./ejemplos/arandela10_test.jpg') ##Esto es algo que podriamos variar por teclado

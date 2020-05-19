@@ -10,7 +10,7 @@ prueba = './Data Base/YTrain/ZArandelas/photo0.jpg'
 #prueba = './ejemplos/tornillo_prueba.jpg'
 
 tornillo = io.imread(prueba)
-#print(tornillo.shape)
+#print(tornillo.shape) -> Esto te devuelve el ancho, alto y los canales
 #El modulo io tiene utilidades para leer y escribir imagenes en varios formatos.
 #io.imread lectura y escritura de las imagenes via imread
 

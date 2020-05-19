@@ -3,43 +3,34 @@ plt.rcParams['image.cmap'] = 'gray'
 
 import numpy as np
 import cv2
-from skimage import filters 
-from scipy.ndimage import convolve
+from skimage import filters, io, color
+
 #GAUSS
-bright_square = np.zeros((7, 7), dtype=float)
-bright_square[2:5, 2:5] = 1
+prueba = './ejemplos/tornillo_prueba.jpg'
+image = io.imread(prueba)
+gris = color.rgb2gray(image)
 
-sigma = 1
-smooth = filters.gaussian(bright_square, sigma)
-
-f, (ax0, ax1) = plt.subplots(1, 2, figsize=(16, 5))
-ax0.imshow(bright_square)
+laplace = filters.laplace(gris)
+median = filters.median(gris)
+frangi = filters.frangi(gris)
+prewitt = filters.prewitt(gris)
+ 
+f, (ax0, ax1,ax2, ax3, ax4) = plt.subplots(1, 5, figsize=(16, 5))
+ax0.imshow(image)
 ax0.set_title('Original')
-ax1.imshow(smooth)
-ax1.set_title('Filtro Gauss')
+
+ax1.imshow(frangi)
+ax1.set_title('Filtro Frangi')
+
+ax2.imshow(prewitt)
+ax2.set_title('Filtro Prewitt')
+
+ax3.imshow(laplace)
+ax3.set_title('Filtro Laplace')
+
+ax4.imshow(median)
+ax4.set_title('Filtro Median')
 plt.show()
 
-#DIFERENCIAL
-vertical_kernel = np.array([
-    [1, 1, 1],
-    [0, 0, 0],
-    [-1, -1, -1]
-])
-
-horizontal_kernel = vertical_kernel.T
-
-horizontal_gradient = convolve(bright_square.astype(float), horizontal_kernel)
-vertical_gradient = convolve(bright_square.astype(float), vertical_kernel)
-
-gradient = np.sqrt(horizontal_gradient**2 + vertical_gradient**2)
-
-fig, (ax0, ax1, ax2, ax3) = plt.subplots(1, 4, figsize=(16, 5))
-ax0.imshow(bright_square)
-ax0.set_title('Original')
-ax1.imshow(horizontal_gradient)
-ax1.set_title('Kernel horizontal')
-ax2.imshow(vertical_gradient)
-ax2.set_title('Kernel vertical')
-ax3.imshow(gradient)
-ax3.set_title('Filtro Diferencial')
-plt.show()
+#Bibliografia consultada
+#https://scikit-image.org/docs/dev/api/skimage.filters.html#skimage.filters.sobel

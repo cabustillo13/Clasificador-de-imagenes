@@ -22,18 +22,15 @@ tornillo = cv2.resize(tornillo, fixed_size)
 tornillo_float = img_as_float(tornillo)
 sk_gray = color.rgb2gray(tornillo_float)
 
-#Tambien se puede modificar manualmente los pesos de cada color
-#Este ejemplo tiene una implementacion para python3
-#gray = tornillo_float @ [0.299, 0.587, 0.114]
-# Esos valores son el criterio utilizado en la TV para senales a color
-#gray = tornillo_float @ [1/3, 1/3, 1/3]
-#Aca se colocan el mismo peso para los tres
+#Tambien se puede modificar manualmente los pesos de cada color en vez de utilizar los propuestos por la libreria
+#Aca se colocan el mismo peso para los tres [1/3 1/3 1/3]
 f, (ax1, ax0) = plt.subplots(1, 2, figsize=(16, 5))
 
 ax1.imshow(tornillo)
 ax1.set_title('Original')
 ax0.imshow(sk_gray)
 ax0.set_title('WG, WB y WR por skimage')
+#Nota: WG, WB y WR son los coeficientes que definen la transformacion
 plt.show()
 
 

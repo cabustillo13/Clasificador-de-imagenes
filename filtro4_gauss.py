@@ -34,3 +34,6 @@ ax2.set_title('$\sigma=5$')
 ax3.imshow(bs2)
 ax3.set_title('$\sigma=15$')
 plt.show()
+
+#Bibliografia consultada
+#https://scikit-image.org/docs/dev/api/skimage.filters.html#skimage.filters.gaussian
