@@ -4,8 +4,8 @@ import cv2
 import numpy as np
 
 ##Carpeta donde quiero hacer el recorte de las imagenes
-carpeta="Clavos"
-#carpeta="Tuercas"
+#carpeta="Clavos"
+carpeta="Tuercas"
 #carpeta="Arandelas"
 #carpeta = "Tornillos"
 
@@ -25,7 +25,7 @@ for i in range(39): #Arranca en 0 y termina en 39-1 -> PARA YTest
     height, width, channels = imagen.shape
     
     #x marca hasta donde cortar (osea corta del pixel 0 hasta 700) 
-    x=700
+    x=600
     crop_img = imagen[0:height, x:width]
 
     #Path de la nueva carpeta donde se guardaran las imagenes recortadas

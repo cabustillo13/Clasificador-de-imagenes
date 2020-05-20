@@ -2,18 +2,18 @@ import numpy as np
 import cv2
 
 ##Seleccione que carpeta quiere: YTrain o YTest
-#carpeta="YTest"
-carpeta="YTrain"
+carpeta="YTest"
+#carpeta="YTrain"
 
 ##Seleccione la pieza
 #pieza="Tornillos"
 #pieza="Clavos"
-#pieza="Tuercas"
-pieza="Arandelas"
+pieza="Tuercas"
+#pieza="Arandelas"
 
 ##Numero de elementos de la carpeta YTrain o YTest 
-numero= 150 #Para YTrain
-#numero=38  #Para YTest
+#numero= 150 #Para YTrain
+numero=38  #Para YTest
 
 path= "/home/carlos/Documentos/Image-Classifier/Data Base/"+carpeta+"/Z"+pieza+"/"
 
