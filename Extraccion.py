@@ -1,5 +1,5 @@
 #####################################################################################################################################
-##Representacion de Histograma de color para imagen filtrada
+##Representacion de Histograma de color para una imagen filtrada
 #####################################################################################################################################
 import numpy as np
 from matplotlib import pyplot as plt
@@ -33,13 +33,13 @@ bc = sobel(bg)
 fig, (ax2, ax1, ax0) = plt.subplots(1, 3, figsize=(16, 5))
 ax0.imshow(bc)
 ax0.hlines(bc.shape[0]//2, 0, bc.shape[1], color='C3')
-ax0.set_title('Filtrado')
+ax0.set_title('Filtro Gauss + Sobel')
 ax1.plot(bc[bc.shape[0]//2, :], color='C3')
-ax1.set_title('Linea central')
+ax1.set_title('Linea divisoria central')
 
 ax2.hist(bc.ravel(), bins=32, range=[0, 256], color='C3')
 ax2.set_xlim(0, 256);
-ax2.set_title('Histograma')
+ax2.set_title('Histograma de color para imagen filtrada')
 plt.show()
 
 #####################################################################################################################################
