@@ -7,8 +7,12 @@ from skimage import io, color, img_as_float, filters
 from skimage.feature import hog
 import cv2
 import mahotas
-
+    
 def extraccion(image):
+    
+    ##TRANSFORMACION
+    image = transformacion(image)
+    image = borrarFondo(image)
     
     ##PRE PROCESAMIENTO
     image = cv2.resize(image, (500, 400))         #Convertir la imagen de 1920x1080 a 500x4
@@ -145,9 +149,11 @@ print(len(datos))
 
 # Elemento a evaluar
 test = Elemento()
+#Recordar recortar y borrar fondo de la imagen con ayuda de Adaptacion.py 
+numero = input("Introduce numero de la foto: ")
 
-#image = io.imread('./Data Base/YTest/ZClavos/photo99.jpg')
-image = io.imread('./Data Base/YTrain/YTuercas/photo9.jpg')
+nombre = './Data Base/YEvaluacion/photo'+str(numero)+'.jpg'
+image = io.imread(nombre)
 
 test.image, test.caracteristica = extraccion(image)
 test.pieza = 'Arandela' # label inicial 
