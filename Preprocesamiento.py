@@ -3,7 +3,7 @@
 prueba = './ejemplos/tornillo_prueba.jpg'
 
 #####################################################################################################################################
-##Descomposicion de una imagen en una matriz de valores R, G y B
+##Descomposicion de una imagen en una tupla de valores R, G y B
 #####################################################################################################################################
 from matplotlib import pyplot as plt
 plt.rcParams['image.cmap'] = 'gray'

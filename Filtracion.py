@@ -190,7 +190,7 @@ plt.show()
 #https://github.com/fubel/PeronaMalikDiffusion/blob/master/main.py
 
 #####################################################################################################################################
-##Filtro Laplace, Median, Frangi, Gauss y Prewitt
+##Filtro Laplace, Median, Frangi y Prewitt
 #####################################################################################################################################
 #GAUSS
 image = io.imread(prueba)
