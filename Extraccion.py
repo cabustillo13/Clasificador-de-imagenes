@@ -15,7 +15,7 @@ def normalizacion(image):
     image = cv2.resize(image, (500, 400))
     return image
 
-def gaussian(image);
+def gaussian(image):
     image = cv2.GaussianBlur(image, (3, 3), 0)
     return image
 
@@ -102,36 +102,36 @@ for i in range(0, len(clavo)):
 #HOG: Histograma de gradientes orientados
 #from skimage.feature import hog
 
-#def hog(image):
+#def histograma_hog(image):
 #    caracteristica = hog(image, block_norm='L2-Hys').ravel()
 #    return caracteristica
 
 ##Entre 5 arandelas distintos
 #print("Entre 5 arandelas distintos")
 #for j in range(5):
-#    print(hog(arandela_gray[j]))
+#    print(histograma_hog(arandela_gray[j]))
 
 ##Entre 5 clavos distintos
 #print("Entre 5 clavos distintos")
 #for j in range(5):
-#    print(hog(clavo_gray[j]))
+#    print(histograma_hog(clavo_gray[j]))
           
 ##Entre 5 tornillos distintos
 #print("Entre 5 tornillos distintos")
 #for j in range(5):
-#    print(hog(tornillo_gray[j]))
+#    print(histograma_hog(tornillo_gray[j]))
 
 ##Entre 5 tuercas distintos
 #print("Entre 5 tuercas distintos")
 #for j in range(5):
-#    print(hog(tuerca_gray[j]))
+#    print(histograma_hog(tuerca_gray[j]))
           
 ##Entre tornillo, tuerca, arandela y clavo
 #print("Entre tornillo, clavo, tuerca y arandela")
-#print(hog(tornillo_gray[0]))
-#print(hog(clavo_gray[0]))
-#print(hog(tuerca_gray[0]))
-#print(hog(arandela_gray[0]))
+#print(histograma_hog(tornillo_gray[0]))
+#print(histograma_hog(clavo_gray[0]))
+#print(histograma_hog(tuerca_gray[0]))
+#print(histograma_hog(arandela_gray[0]))
 
 #Haralick Textura
 import mahotas
@@ -210,132 +210,4 @@ print(haralick(arandela_gray[0]))
 #print(hu(tuerca_edge[0]))
 #print(hu(arandela_edge[0]))
 #print(hu(clavo_edge[0]))
-
-#####################################################################################################################################
-##Reduccion de dimensionalidad para Hu, Haralick y HOG
-#####################################################################################################################################
-import matplotlib.patches as mpatches
-
-#Estadistica -> Aca vamos a anlizar la frecuencia de aparicion para cada pieza, y para eso hacemos uso de la media aritmetica y la desviacion estandar
-def estadistica(array):
-    
-    sum = 0
-    for value in array:
-        sum += value
-    media = sum / len(array)
-    sum = 0
-    for value in array:
-        sum += np.power((value - media), 2)
-    desviacion = np.sqrt(sum / (len(array) - 1))
-    
-    return media, desviacion
-
-#HOG 
-grafico_hog, ax = plt.subplots()
-
-for objeto in tornillo_gray:
-    tornillo_fhog = hog(objeto)
-    media, desviacion = estadistica(tornillo_fhog)
-    ax.plot(media, desviacion, 'o', color='yellow')
-    
-for objeto in tuerca_gray:
-    tuerca_fhog = hog(objeto)
-    media, desviacion = estadistica(tuerca_fhog)
-    ax.plot(media, desviacion, 'o', color='red')
-    
-for objeto in arandela_gray:
-    arandela_fhog = hog(objeto)
-    media, desviacion = estadistica(arandela_fhog)
-    ax.plot(media, desviacion, 'o', color='blue')
-
-for objeto in clavo_gray:
-    clavo_fhog = hog(objeto)
-    media, desviacion = estadistica(clavo_fhog)
-    ax.plot(media, desviacion, 'o', color='green')
-
-ax.grid(True)
-ax.set_title("Reduccion de dimensionalidad para HOG")
-
-yellow_patch = mpatches.Patch(color='yellow', label='Tornillo')
-red_patch = mpatches.Patch(color='red', label='Tuerca')
-blue_patch = mpatches.Patch(color='blue', label='Arandela')
-green_patch = mpatches.Patch(color='green', label='Clavo')
-
-plt.legend(handles=[yellow_patch, red_patch, blue_patch, green_patch])
-
-plt.ylabel('Desviacion estandar')
-plt.xlabel('Media aritmetica')
-plt.show()
-
-#Hu
-grafico_hu, ax = plt.subplots()
-
-for objeto in tornillo_edge:
-    tornillo_fhm = hu(objeto)
-    media, desviacion = estadistica(tornillo_fhm)
-    ax.plot(media, desviacion, 'o', color='yellow')
-    
-for objeto in tuerca_edge:
-    tuerca_fhm = hu(objeto)
-    media, desviacion = estadistica(tuerca_fhm)
-    ax.plot(media, desviacion, 'o', color='red')
-    
-for objeto in arandela_edge:
-    arandela_fhm = hu(objeto)
-    media, desviacion = estadistica(arandela_fhm)
-    ax.plot(media, desviacion, 'o', color='blue')
-
-for objeto in clavo_edge:
-    clavo_fhm = hu(objeto)
-    media, desviacion = estadistica(clavo_fhm)
-    ax.plot(media, desviacion, 'o', color='green')
-
-ax.grid(True)
-ax.set_title("Reduccion de Dimensionalidad para Hu")
-
-yellow_patch = mpatches.Patch(color='yellow', label='Tornillo')
-red_patch = mpatches.Patch(color='red', label='Tuerca')
-blue_patch = mpatches.Patch(color='blue', label='Arandela')
-green_patch = mpatches.Patch(color='green', label = 'Clavo')
-plt.legend(handles=[yellow_patch, red_patch, blue_patch, green_patch])
-
-plt.ylabel('Desviacion estandar')
-plt.xlabel('Media aritmetica')
-plt.show()
-
-#Haralick
-grafica_haralick, ax = plt.subplots()
-
-for objeto in tornillo_gray:
-    tornillo_fht = haralick(objeto)
-    media, desviacion = estadistica(tornillo_fht)
-    ax.plot(media, desviacion, 'o', color='yellow')
-    
-for objeto in tuerca_gray:
-    tuerca_fht = haralick(objeto)
-    media, desviacion = estadistica(tuerca_fht)
-    ax.plot(media, desviacion, 'o', color='red')
-    
-for objeto in arandela_gray:
-    arandela_fht = haralick(objeto)
-    media, desviacion = estadistica(arandela_fht)
-    ax.plot(media, desviacion, 'o', color='blue')
-
-for objeto in clavo_gray:
-    clavo_fht = haralick(objeto)
-    media, desviacion = estadistica(clavo_fht)
-    ax.plot(media, desviacion, 'o', color='green')
-
-ax.grid(True)
-ax.set_title("Reduccion de Dimensionalidad para Haralick")
-
-yellow_patch = mpatches.Patch(color='yellow', label='Tornillo')
-red_patch = mpatches.Patch(color='red', label='Tuerca')
-blue_patch = mpatches.Patch(color='blue', label='Arandela')
-green_patch = mpatches.Patch(color='green', label = 'Clavo')
-plt.legend(handles=[yellow_patch, red_patch, blue_patch, green_patch])
-
-plt.ylabel('Desviacion estandar')
-plt.xlabel('Media aritmetica')
-plt.show()
 
