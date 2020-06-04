@@ -11,11 +11,10 @@ import mahotas
 def extraccion(image):
     
     ##TRANSFORMACION
-    #image = transformacion(image)
-    #image = borrarFondo(image)
+    #Recordar hacer la transformacion de la imagen con el programa Transformacion.py
+    image = cv2.resize(image, (500, 400))         #Convertir la imagen de 1220x1080 a 500x400
     
     ##PRE PROCESAMIENTO
-    image = cv2.resize(image, (500, 400))         #Convertir la imagen de 1920x1080 a 500x4
     aux = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) #Convertir a escala de grises
     
     ##FILTRACION
@@ -32,35 +31,8 @@ def extraccion(image):
     hu = cv2.HuMoments(cv2.moments(aux)).flatten()
     
     ##ANALISIS DE LAS CARACTERISTICAS
-    "Para 2 elementos"
-    #PARA MOMENTOS DE HU
-    #return aux, [hu[0], hu[1]]
-    ##PARA HARALICK
-    #return aux, [haralick[0], haralick[1]]
-    
-    "Para 3 elementos"
     #PARA MOMENTOS DE HU
     return aux, [hu[0], hu[1], hu[3]]
-    #PARA HARALICK
-    #return aux, [haralick[0], haralick[1], haralick[3]]
-    
-    "Para 4 elementos"
-    #PARA HARALICK
-    #return aux, [haralick[0], haralick[1], haralick[2],haralick[3]]
-    #PARA MOMENTOS DE HU
-    #return aux, [hu[0], hu[1], hu[2], hu[3]]
-    
-    "Para todos los elementos -> datos en crudo"
-    #PARA MOMENTOS DE HU
-    #return aux, hu
-    #PARA HARALICK
-    #return aux, haralick
-    
-    "Para 8 elementos"
-    #return aux, [haralick[2], haralick[3], haralick[4], haralick[5], haralick[6], haralick[7], haralick[9], haralick[11]]
-    
-    "Hu + Haralick"
-    #return aux, [hu[0], hu[1], hu[3], haralick[0], haralick[1],haralick[3]]
 
 #Analisis de la base de datos (YTrain)
 ##Entrenamiento de la base de datos 
@@ -148,8 +120,8 @@ print("Cantidad de imagenes analizadas: ")
 print(len(datos))
 
 # Elemento a evaluar
+#Recordar aplicar Transformacion.py cuando se quiera evaluar una nueva imagen.
 test = Elemento()
-#Recordar recortar y borrar fondo de la imagen con ayuda de Adaptacion.py 
 numero = input("Introduce numero de la foto: ")
 
 nombre = './Data Base/YEvaluacion/photo'+str(numero)+'.jpg'
