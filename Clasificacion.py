@@ -11,8 +11,8 @@ import mahotas
 def extraccion(image):
     
     ##TRANSFORMACION
-    image = transformacion(image)
-    image = borrarFondo(image)
+    #image = transformacion(image)
+    #image = borrarFondo(image)
     
     ##PRE PROCESAMIENTO
     image = cv2.resize(image, (500, 400))         #Convertir la imagen de 1920x1080 a 500x4
