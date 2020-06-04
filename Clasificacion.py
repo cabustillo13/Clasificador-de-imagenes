@@ -137,9 +137,9 @@ blue_patch = mpatches.Patch(color='blue', label='Arandela')
 green_patch = mpatches.Patch(color='green', label='Clavo')
 plt.legend(handles=[yellow_patch, red_patch, blue_patch, green_patch])
 
-ax.set_xlabel('comp1')
-ax.set_ylabel('comp2')
-ax.set_zlabel('comp3')
+ax.set_xlabel('componente 1')
+ax.set_ylabel('componente 2')
+ax.set_zlabel('componente 4')
 
 plt.show()
 
@@ -244,9 +244,9 @@ blue_patch = mpatches.Patch(color='blue', label='Arandela')
 green_patch = mpatches.Patch(color='green', label='Clavo')
 plt.legend(handles=[yellow_patch, red_patch, blue_patch, green_patch])
 
-ax.set_xlabel('comp0')
-ax.set_ylabel('comp1')
-ax.set_zlabel('comp3')
+ax.set_xlabel('componente 1')
+ax.set_ylabel('componente 2')
+ax.set_zlabel('componente 4')
 
 plt.show()
 
