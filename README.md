@@ -2,7 +2,7 @@
 
 ## Clasificador de piezas de ferretería (tornillos, clavos, arandelas y tuercas) mediante visión artificial.
 
-Proyecto de Inteligencia Artificial 1 - Universidad Nacional de Cuyo.
+**Proyecto de Inteligencia Artificial 1 - Universidad Nacional de Cuyo.**
 
 Este proyecto de visión artificial consiste en la clasificación de piezas metálicas (tornillos, clavos, tuercas y arandelas). 
 El programa consta de una etapa de: Adquisición de imágenes (a través de una caja cerrada con fondo blanco, con iluminación frontal y comunicación por IP 
