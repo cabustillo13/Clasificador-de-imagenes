@@ -1,4 +1,4 @@
-# Image-Classifier
+# Clasificador-de-imagenes
 
 ## Clasificador de piezas de ferretería (tornillos, clavos, arandelas y tuercas) mediante visión artificial.
 
